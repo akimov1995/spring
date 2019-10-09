@@ -1,5 +1,4 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import homeTask.controller.ArtistController;
 import homeTask.dao.AlbumDao;
 import homeTask.dao.ArtistDao;
 
@@ -12,38 +11,24 @@ import homeTask.model.Track;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import javax.transaction.Transactional;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static sun.nio.cs.Surrogate.is;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations = {"file:web/WEB-INF/applicationContext.xml",
-        "file:web/WEB-INF/dispatcher-servlet.xml"})
+@ContextConfiguration(locations = {"file:/webapp/WEB-INF/applicationContext.xml",
+        "file:/webapp/WEB-INF/dispatcher-servlet.xml"})
 @ActiveProfiles("local")
 public class SpringTest {
     @Autowired
@@ -53,6 +38,8 @@ public class SpringTest {
 
     @Autowired
     private ArtistDao artistDao;
+
+
 
     @Autowired
     private AlbumDao albumDao;
